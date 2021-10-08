@@ -45,27 +45,21 @@ class PersonTest {
     @Test
     public void failedMarriageAlreadyMarriageException() {
         otherPerson.setMarried(true);
-        assertThrows(AlreadyMarriedException.class, () -> {
-            person.marry(otherPerson);
-        });
+        assertThrows(AlreadyMarriedException.class, () -> person.marry(otherPerson));
     }
 
     @Test
     public void failedMarriageTooYoungException() {
         otherPerson.setMarried(false);
         otherPerson.setAge(17);
-        assertThrows(TooYoungException.class, () -> {
-            person.marry(otherPerson);
-        });
+        assertThrows(TooYoungException.class, () -> person.marry(otherPerson));
     }
 
     @Test
     public void failedMarriageSameGenderException() {
         otherPerson.setMarried(false);
         otherPerson.setMale(true);
-        assertThrows(SameGenderException.class, () -> {
-            person.marry(otherPerson);
-        });
+        assertThrows(SameGenderException.class, () -> person.marry(otherPerson));
     }
 
     @AfterEach
