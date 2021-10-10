@@ -19,6 +19,7 @@ class PersonTest {
         person = new Person("John", true, 25);
         person.setMarried(false);
         otherPerson = new Person("Lisa", false, 25);
+        otherPerson.setMarried(false);
     }
 
     @Test
@@ -38,7 +39,6 @@ class PersonTest {
 
     @Test
     public void successfulMarriage() throws AlreadyMarriedException, TooYoungException, SameGenderException {
-        otherPerson.setMarried(false);
         assertTrue(person.marry(otherPerson));
     }
 
@@ -50,14 +50,12 @@ class PersonTest {
 
     @Test
     public void failedMarriageTooYoungException() {
-        otherPerson.setMarried(false);
         otherPerson.setAge(17);
         assertThrows(TooYoungException.class, () -> person.marry(otherPerson));
     }
 
     @Test
     public void failedMarriageSameGenderException() {
-        otherPerson.setMarried(false);
         otherPerson.setMale(true);
         assertThrows(SameGenderException.class, () -> person.marry(otherPerson));
     }
@@ -65,5 +63,6 @@ class PersonTest {
     @AfterEach
     public void tearDown() {
         person = null;
+        otherPerson = null;
     }
 }
