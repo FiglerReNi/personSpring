@@ -23,7 +23,7 @@ public class Person {
         this.isMarried = RandomGenerator.getRandomValue(2) != 0;
     }
 
-    public boolean marry(Person person) throws SameGenderException, TooYoungException, AlreadyMarriedException {
+    public boolean isMarriagePossible(Person person) throws SameGenderException, TooYoungException, AlreadyMarriedException {
         if (person.isMale == this.isMale) {
             throw new SameGenderException();
         }
@@ -33,6 +33,8 @@ public class Person {
         if (person.isMarried() || this.isMarried) {
             throw new AlreadyMarriedException();
         }
+        this.setMarried(true);
+        person.setMarried(true);
         return true;
     }
 }
