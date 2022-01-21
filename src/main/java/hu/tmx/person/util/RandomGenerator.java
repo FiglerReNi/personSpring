@@ -4,8 +4,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomGenerator {
 
-    public static int getRandomValue(int max) {
-        return ThreadLocalRandom.current().nextInt(max);
+    public static boolean getRandomValue() {
+        return ThreadLocalRandom.current().nextBoolean();
     }
 
 }

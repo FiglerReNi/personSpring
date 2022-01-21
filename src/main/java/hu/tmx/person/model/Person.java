@@ -20,7 +20,7 @@ public class Person {
         this.name = name;
         this.isMale = isMale;
         this.age = age;
-        this.isMarried = RandomGenerator.getRandomValue(2) != 0;
+        this.isMarried = RandomGenerator.getRandomValue();
     }
 
     public boolean isMarriagePossible(Person person) throws SameGenderException, TooYoungException, AlreadyMarriedException {
